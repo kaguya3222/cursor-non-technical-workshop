@@ -61,7 +61,9 @@ function App() {
               </defs>
             </svg>
           </div>
-          <h1 className="text-xl font-semibold text-gray-900">FlavorFlow</h1>
+          <h1 className="text-xl font-semibold text-gray-900 font-title">
+            FlavorFlow
+          </h1>
         </div>
       </header>
 
@@ -94,7 +96,7 @@ function App() {
           </div>
           <button
             type="button"
-            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors cursor-pointer"
           >
             + New
           </button>
@@ -102,7 +104,13 @@ function App() {
 
         {/* Empty State */}
         <div className="flex flex-col items-center justify-center py-20 text-center">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-3">
+          <h2
+            className="text-2xl font-semibold text-gray-900 mb-3"
+            style={{
+              fontFamily:
+                'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+            }}
+          >
             No recipes yet
           </h2>
           <p className="text-gray-500 text-lg">

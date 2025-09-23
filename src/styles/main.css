@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+/* Font family configuration */
+body {
+  font-family:
+    "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+}
+
+/* Title font classes */
+.font-title {
+  font-family: "Roboto Serif", Georgia, "Times New Roman", serif;
+}
+
+/* Ensure all headings use the title font by default */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto Serif", Georgia, "Times New Roman", serif;
+}
