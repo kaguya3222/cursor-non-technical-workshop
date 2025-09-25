@@ -1,15 +1,105 @@
-import { useId } from "react"
+import { useId, useState, useEffect, useCallback } from "react"
+import styles from "./App.module.css"
+
+// Define the Recipe type
+type Recipe = {
+  id: string
+  title: string
+  description: string
+  image: string
+}
 
 function App() {
   const clipPathId = useId()
+  const titleId = useId()
+  const descriptionId = useId()
+  const imageId = useId()
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [searchTerm, setSearchTerm] = useState("")
+
+  // Function to load recipes from local storage
+  const loadRecipesFromStorage = (): Recipe[] => {
+    try {
+      const savedRecipes = localStorage.getItem("flavorflow-recipes")
+      if (savedRecipes) {
+        return JSON.parse(savedRecipes)
+      }
+    } catch (error) {
+      console.error("Error loading recipes from storage:", error)
+    }
+    return []
+  }
+
+  // Function to save recipes to local storage
+  const saveRecipesToStorage = useCallback((recipes: Recipe[]) => {
+    try {
+      localStorage.setItem("flavorflow-recipes", JSON.stringify(recipes))
+    } catch (error) {
+      console.error("Error saving recipes to storage:", error)
+    }
+  }, [])
+  const [recipes, setRecipes] = useState<Recipe[]>(loadRecipesFromStorage)
+  const [formData, setFormData] = useState({
+    title: "",
+    description: "",
+    image: "",
+  })
+
+  // Save recipes to local storage whenever recipes change
+  useEffect(() => {
+    saveRecipesToStorage(recipes)
+  }, [recipes, saveRecipesToStorage])
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+
+    // Create a new recipe with a unique ID
+    const newRecipe = {
+      id: Date.now().toString(), // Simple ID generation
+      title: formData.title,
+      description: formData.description,
+      image: formData.image,
+    }
+
+    // Add the new recipe to the list
+    setRecipes((prev) => [newRecipe, ...prev]) // Add to beginning of array
+
+    // Close modal and reset form
+    setIsModalOpen(false)
+    setFormData({ title: "", description: "", image: "" })
+  }
+
+  const handleCancel = () => {
+    setIsModalOpen(false)
+    setFormData({ title: "", description: "", image: "" })
+  }
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value)
+  }
+
+  // Filter recipes based on search term
+  const filteredRecipes = recipes.filter((recipe) =>
+    recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
+  )
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className={styles.container}>
       {/* Header */}
-      <header className="flex items-center justify-between p-6 border-b border-gray-100">
-        <div className="flex items-center gap-3">
+      <header className={styles.header}>
+        <div className={styles.logoSection}>
           <div
-            className="w-8 h-8 rounded-lg flex items-center justify-center"
+            className={styles.logoIcon}
             style={{
               background:
                 "linear-gradient(135deg, rgba(245, 95, 20, 0.7) 0%, rgba(245, 95, 20, 1) 100%)",
@@ -61,20 +151,18 @@ function App() {
               </defs>
             </svg>
           </div>
-          <h1 className="text-xl font-semibold text-gray-900 font-title">
-            FlavorFlow
-          </h1>
+          <h1 className={styles.logoTitle}>FlavorFlow</h1>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="p-6">
+      <main className={styles.main}>
         {/* Search Bar and New Button */}
-        <div className="flex items-center gap-4 mb-8">
-          <div className="flex-1 relative">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+        <div className={styles.searchSection}>
+          <div className={styles.searchContainer}>
+            <div className={styles.searchIconContainer}>
               <svg
-                className="h-5 w-5 text-gray-400"
+                className={styles.searchIcon}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -91,35 +179,174 @@ function App() {
             <input
               type="text"
               placeholder="Search recipes"
-              className="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-lg bg-gray-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+              className={styles.searchInput}
+              value={searchTerm}
+              onChange={handleSearchChange}
             />
           </div>
           <button
             type="button"
-            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors cursor-pointer"
+            className={styles.newButton}
+            onClick={() => setIsModalOpen(true)}
           >
             + New
           </button>
         </div>
 
-        {/* Empty State */}
-        <div className="flex flex-col items-center justify-center py-20 text-center">
-          <h2
-            className="text-2xl font-semibold text-gray-900 mb-3"
-            style={{
-              fontFamily:
-                'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-            }}
-          >
-            No recipes yet
-          </h2>
-          <p className="text-gray-500 text-lg">
-            Create your first recipe to
-            <br />
-            get started.
-          </p>
-        </div>
+        {/* Recipes or Empty State */}
+        {filteredRecipes.length === 0 ? (
+          <div className={styles.emptyState}>
+            <h2
+              className={styles.emptyStateTitle}
+              style={{
+                fontFamily:
+                  'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+              }}
+            >
+              {recipes.length === 0 ? "No recipes yet" : "No recipes found"}
+            </h2>
+            <p className={styles.emptyStateText}>
+              {recipes.length === 0 ? (
+                <>
+                  Create your first recipe to
+                  <br />
+                  get started.
+                </>
+              ) : (
+                <>
+                  Try adjusting your search to find
+                  <br />
+                  what you're looking for.
+                </>
+              )}
+            </p>
+          </div>
+        ) : (
+          <div className={styles.recipesGrid}>
+            {filteredRecipes.map((recipe) => (
+              <div key={recipe.id} className={styles.recipeCard}>
+                {recipe.image && (
+                  <div className={styles.recipeImageContainer}>
+                    <img
+                      src={recipe.image}
+                      alt={recipe.title}
+                      className={styles.recipeImage}
+                      onError={(e) => {
+                        // Hide image if it fails to load
+                        e.currentTarget.style.display = "none"
+                      }}
+                    />
+                  </div>
+                )}
+                <div className={styles.recipeContent}>
+                  <h3 className={styles.recipeTitle}>{recipe.title}</h3>
+                  <p className={styles.recipeDescription}>
+                    {recipe.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </main>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modalContent}>
+            <div className={styles.modalHeader}>
+              <h2 className={styles.modalTitle}>Create Recipe</h2>
+              <button
+                type="button"
+                className={styles.closeButton}
+                onClick={handleCancel}
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-label="Close modal"
+                >
+                  <title>Close modal</title>
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+
+            <p className={styles.modalDescription}>
+              Add a new recipe with a title, description and an optional image.
+            </p>
+
+            <form onSubmit={handleSubmit} className={styles.modalForm}>
+              <div className={styles.formGroup}>
+                <label htmlFor={titleId} className={styles.formLabel}>
+                  Title
+                </label>
+                <input
+                  type="text"
+                  id={titleId}
+                  name="title"
+                  value={formData.title}
+                  onChange={handleInputChange}
+                  placeholder="E.g. Creamy Tomato Pasta"
+                  className={styles.formInput}
+                  required
+                />
+              </div>
+
+              <div className={styles.formGroup}>
+                <label htmlFor={descriptionId} className={styles.formLabel}>
+                  Description
+                </label>
+                <textarea
+                  id={descriptionId}
+                  name="description"
+                  value={formData.description}
+                  onChange={handleInputChange}
+                  placeholder="Enter recipe instructions..."
+                  className={styles.formTextarea}
+                  rows={6}
+                  required
+                />
+              </div>
+
+              <div className={styles.formGroup}>
+                <label htmlFor={imageId} className={styles.formLabel}>
+                  Image
+                </label>
+                <input
+                  type="url"
+                  id={imageId}
+                  name="image"
+                  value={formData.image}
+                  onChange={handleInputChange}
+                  placeholder="Paste an image URL (optional)"
+                  className={styles.formInput}
+                />
+              </div>
+
+              <div className={styles.modalActions}>
+                <button
+                  type="button"
+                  className={styles.cancelButton}
+                  onClick={handleCancel}
+                >
+                  Cancel
+                </button>
+                <button type="submit" className={styles.createButton}>
+                  Create
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
