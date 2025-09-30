@@ -11,14 +11,27 @@ A modern recipe management application built with React, TypeScript, and Tailwin
 - **Package Manager**: pnpm
 - **Node Version**: 22.17.0
 
-## Getting Started
+## Prerequisites
 
-### Prerequisites
+1. **nvm (Node Version Manager)**
+   - Install from: https://github.com/nvm-sh/nvm
+   - macOS/Linux: `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash`
+   - Windows: Install nvm-windows from https://github.com/coreybutler/nvm-windows
+   - Verify installation: `nvm --version`
 
-- Node.js 22.17.0 (use nvm: `nvm use`)
-- pnpm package manager
+2. **Node.js 22.17.0**
+   - Use nvm: `nvm install` (automatically reads from `.nvmrc` file)
+   - Or install specific version: `nvm install 22.17.0 && nvm use 22.17.0`
+   - Verify installation: `node --version`
 
-### Installation
+3. **pnpm (Package Manager)**
+   - Install globally: `npm install -g pnpm`
+   - Verify installation: `pnpm --version`
+
+4. **Git**
+   - Verify installation: `git --version`
+
+## Installation
 
 1. Clone the repository:
 
@@ -33,82 +46,14 @@ A modern recipe management application built with React, TypeScript, and Tailwin
    pnpm install
    ```
 
+   This downloads all the code libraries the project needs to work.
+
 3. Start the development server:
 
    ```bash
    pnpm dev
    ```
 
+   This starts the app on your computer so you can see it in your browser.
+
 4. Open your browser and navigate to `http://localhost:5173`
-
-## Available Scripts
-
-- `pnpm dev` - Start development server
-- `pnpm build` - Build for production
-- `pnpm preview` - Preview production build
-- `pnpm lint` - Run linter
-- `pnpm lint:fix` - Run linter and fix issues
-- `pnpm format` - Format code
-
-## Project Structure
-
-```
-src/
-├── utils/              # Utility functions (to be added)
-│   └── index.ts
-├── styles/             # CSS files
-│   └── main.css
-├── App.tsx             # Main App component
-└── main.tsx            # Application entry point
-```
-
-### Directories to be created as needed:
-
-- `components/` - Reusable UI components
-- `hooks/` - Custom React hooks
-- `types/` - TypeScript type definitions
-- `pages/` - Page components (if using routing)
-
-## Development
-
-### Code Quality
-
-This project uses Biome.js for consistent code formatting and linting:
-
-- **Formatting**: 2-space indentation, double quotes, semicolons as needed
-- **Linting**: Strict TypeScript rules with React best practices
-- **Import Organization**: Automatic import sorting
-
-### Adding New Features
-
-1. Create directories as needed (`components/`, `hooks/`, `types/`, etc.)
-2. Add TypeScript type definitions
-3. Create utility functions in `src/utils/`
-4. Build custom React hooks for state management
-5. Create reusable UI components
-6. Update the main App component
-
-## Future Enhancements
-
-- Recipe categories
-- Cooking instructions
-- Ingredient lists
-- Recipe sharing
-- Import/export functionality
-- Recipe images upload
-- Nutritional information
-- Cooking timers
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Run `pnpm lint:fix` and `pnpm format`
-5. Commit your changes
-6. Push to your branch
-7. Create a Pull Request
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
