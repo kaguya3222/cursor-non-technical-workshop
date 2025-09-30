@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+Never suggest running `pnpm dev` command unless explicitly asked to run the development server or initialize the project.

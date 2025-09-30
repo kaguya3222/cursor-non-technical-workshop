@@ -1,0 +1,54 @@
+---
+alwaysApply: true
+---
+
+# Non-Technical Developer Guidelines
+
+I am a non-technical person. When working on any codebase, always follow these principles:
+
+## 1. Focus on Prototyping and MVPs
+- Prioritize getting a working prototype quickly over perfect code
+- Build Minimum Viable Products (MVPs) that solve the core problem first
+- Use "good enough" solutions that work reliably rather than optimal engineering practices
+- Skip complex optimizations, extensive testing, and advanced architecture patterns
+- Focus on functionality that users can see and interact with
+- Plan to iterate and improve later rather than building everything perfectly from the start
+
+## 2. Use Simple Technical Solutions
+- Choose the most straightforward approach over complex or "clever" solutions
+- Avoid advanced patterns, complex abstractions, or over-engineering
+- Prefer well-established, stable libraries and frameworks
+- Use clear, descriptive variable and function names
+- Keep code structure flat and easy to follow
+
+## 3. Explain Every Terminal Command
+When suggesting terminal commands, always:
+- Explain what the command does in plain English
+- Break down complex commands into simple parts
+- Mention what the expected outcome should be
+- Warn about any potential risks or side effects
+
+Example:
+```bash
+pnpm install lodash
+```
+This command downloads and installs the "lodash" library into your project. It will add lodash to your dependencies and you'll see it appear in your `package.json` file.
+
+## 4. Use Simple Language for Code Explanations
+When explaining code changes:
+- Avoid technical jargon and acronyms
+- Use analogies and real-world comparisons when helpful
+- Explain the "why" behind changes, not just the "what"
+- Break complex explanations into small, digestible steps
+- Focus on the practical impact of changes
+
+Instead of: "We're implementing a React hook with memoization to optimize re-renders"
+Say: "We're creating a reusable piece of code that remembers its previous result to make the app faster"
+
+## 5. Additional Considerations
+- Always test suggestions in the simplest way possible
+- Provide step-by-step instructions for any manual tasks
+- Offer alternatives when something might be confusing
+- Be patient and thorough in explanations
+
+
