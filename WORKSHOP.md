@@ -12,11 +12,7 @@ Welcome! This workshop will teach you how to use Cursor to build a beautiful rec
 
 - How to interact with Cursor to write code for you
 - How to turn Figma designs into working applications
-- How to use MCPs (Model Context Protocol) to connect external tools like Figma and Playwright
 - How to iterate and improve your app through conversation
-- How to deploy your app to the web
-
----
 
 ## 📋 Prerequisites
 
@@ -48,8 +44,6 @@ Open these links - you'll need them throughout the workshop:
 3. Select **Download ZIP**
 4. Unzip the file to a location you can easily find
 
----
-
 ## 🚀 Stage 1: Meet Your AI Coding Partner
 
 **Concept**: Learn how to interact with Cursor and explore its interface
@@ -66,7 +60,7 @@ You'll see a file view on the left - this is the standard IDE layout engineers u
 
 ### Step 3: Open the Chat
 1. Look for the chat panel on the right side
-2. If you don't see it, press `Cmd + I` (Mac) or `Ctrl + I` (Windows)
+2. If you don't see it, press `Cmd + L` (Mac) or `Ctrl + L` (Windows)
 
 **This chat is your AI coding partner!** Think of it as ChatGPT or Claude, but with the ability to write and modify code.
 
@@ -86,8 +80,6 @@ Let's try it out:
 1. Switch to **Ask** mode
 2. Type: "Which technologies are used in this project?"
 3. See how the AI understands your codebase!
-
----
 
 ## 📝 Stage 2: Create and Edit Files with AI
 
@@ -114,8 +106,6 @@ Share an emoji in the FigJam board that describes your impression so far!
 
 Suggestions: 😊 (enjoying), 😅 (overwhelmed), 🤔 (curious)
 
----
-
 ## ⚙️ Stage 3: Run Your Project
 
 **Concept**: Let Cursor help you set up and run the application
@@ -140,8 +130,6 @@ Open your browser and go to the address shown. You should see a basic version of
 ### 🎉 Checkpoint!
 Share your result in FigJam!
 
----
-
 ## 🪟 Stage 4: Unlock Agentic Window
 
 **Concept**: Switch to a simpler, more conversational interface
@@ -158,8 +146,6 @@ Since we're not engineers, we don't need all the technical IDE features. Cursor 
 - Or press `Cmd + E` (Mac) or `Ctrl + E` (Windows)
 
 This gives you a focused view perfect for working with AI!
-
----
 
 ## 🎨 Stage 5: Build Your First Screen
 
@@ -179,8 +165,9 @@ Take a screenshot of the empty state screen from Figma
 1. Make sure you're in **Agent** mode
 2. Select **Claude Sonnet** model
 3. Upload your screenshot to the chat
-4. Write a prompt like:
+4. Write your own prompt describing what you want
 
+**Example prompt:**
 ```
 Please implement this screen for FlavorFlow. This is the empty state 
 when the user hasn't added any recipes yet. Match the design in the 
@@ -203,96 +190,27 @@ Keep refining with prompts like:
 ### 🎉 Checkpoint!
 Share your result in FigJam!
 
----
-
-## 🎭 Stage 6: Build the Add Recipe Modal
-
-**Concept**: Use advanced tools like Figma MCP and Playwright MCP
-
-Now let's add the modal (popup window) where users can add new recipes!
-
-### Option A: Using Figma MCP
-
-Figma MCP is a special connection that lets Cursor read designs directly from Figma! **This option is available for people who have a paid Figma seat.**
-
-### Step 1: Enable Figma MCP
-1. Open **Cursor Settings** → **MCP** section
-2. Find **Figma MCP**
-3. Click **Authorize** and sign in to Figma
-4. Make sure it's enabled
-
-### Step 2: Get the Design Link
-1. In Figma, activate **Dev Mode** (if not already active)
-2. Select the modal design
-3. Right-click → **Copy link to selection**
-
-### Step 3: Prompt the Agent
-Type something like:
-
-```
-Using Figma MCP, implement this modal: [paste your Figma link]
-
-This modal should allow users to add a new recipe with fields for 
-the recipe name, category, and any other details.
-```
-
-**📖 More details**: https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/#using-the-mcp-server
-
-### Option B: Using a Screenshot
-If you don't have a paid Figma seat, just take a screenshot like before and upload it with your prompt!
-
-### Step 4: Iterate on the Modal UI
-Refine the modal's appearance:
-- "Make the input fields larger"
-- "Add more spacing between the form fields"
-- "Make the submit button more prominent"
-
-### Step 5: Debug with Playwright MCP
-
-After adding recipes, you might notice they disappear when you refresh the page. Let's fix this!
-
-#### Enable Playwright MCP
-1. Open **Cursor Settings** → **MCP** section
-2. Find **Playwright MCP**
-3. Make sure it's enabled
-
-#### Use It to Debug
-Type:
-
-```
-Use Playwright MCP to test adding a recipe and refreshing the page. 
-Help me understand why recipes aren't being saved and fix it so they 
-persist after page refresh.
-```
-
-The AI will run the browser and test your app automatically, suggesting solutions after!
-
-### 🎉 Checkpoint!
-Share your working modal in FigJam!
-
----
-
-## 📚 Stage 7: Build the Recipes List
+## 📚 Stage 6: Build the Recipes List
 
 **Concept**: Display saved recipes in a beautiful list
 
-Now that users can add recipes, let's show them in a nice list!
+Now let's create a way to show recipes in a nice list!
 
 ### Step 1: Get the Design
-Use either:
-- Figma MCP with the recipes list selection link, OR
-- A screenshot of the recipes list design
+Take a screenshot of the recipes list design from Figma
 
 ### Step 2: Prompt the Agent
+Upload your screenshot and describe what you want in your own words.
+
+**Example prompt:**
 ```
 Implement what's shown on the screen. Display all saved recipes in a list. 
 Note that the image and description are conditional fields - they should 
 only appear if the recipe has them.
-[Attach screenshot or use Figma MCP link]
 ```
 
 ### Step 3: Iterate!
-Make it perfect:
+Make it perfect with example prompts like:
 - "Add more spacing between recipe cards"
 - "Make the recipe cards have a subtle shadow"
 - "Show recipes in a grid layout instead of a list"
@@ -300,7 +218,55 @@ Make it perfect:
 ### 🎉 Checkpoint!
 Share your result in FigJam!
 
----
+## 🎭 Stage 7: Build the Add Recipe Modal
+
+**Concept**: Turn design into an interactive popup window
+
+Now let's add the modal (popup window) where users can add new recipes!
+
+### Step 1: Get the Design
+Take a screenshot of the modal design from Figma
+
+### Step 2: Prompt the Agent
+Upload your screenshot and describe what you need in your own words.
+
+**Example prompt:**
+```
+Implement this modal for adding new recipes. It should have input 
+fields for the recipe name, category, description, and image URL. 
+The modal should open when clicking the "Add Recipe" button.
+```
+
+### Step 3: Iterate on the Modal UI
+Refine the modal's appearance with example prompts like:
+- "Make the input fields larger"
+- "Add more spacing between the form fields"
+- "Make the submit button more prominent"
+
+### Step 4: Save Recipes Permanently
+
+After adding recipes, you might notice they disappear when you refresh the page. Let's fix this using Cursor's browser feature!
+
+#### Enable Cursor Browser
+1. Open **Cursor Settings**
+2. Go to **Beta** section
+3. Enable **Cursor Browser**
+
+#### Use Browser to Debug
+1. Open the chat
+2. Look for the **Browser** toggle and enable it
+3. Describe the problem you're seeing in your own words
+
+**Example prompt:**
+```
+Recipes disappear when I refresh the page. Please open the browser, 
+debug it and fix it.
+```
+
+The AI will open a browser, test your app, find the problem, and add code to save your recipes locally!
+
+### 🎉 Checkpoint!
+Share your working modal in FigJam!
 
 ## 🔍 Stage 8: Make the Search Work
 
@@ -309,6 +275,9 @@ Share your result in FigJam!
 The search bar at the top might already be working, but if it's not, let's fix that!
 
 ### Prompt the Agent
+Describe what you want the search feature to do in your own words.
+
+**Example prompt:**
 ```
 The search bar isn't working yet. Please make it functional so users 
 can search for recipes by name. The search should filter the recipes 
@@ -325,9 +294,21 @@ list in real-time as the user types.
 ### 🎉 Checkpoint!
 Share your results in FigJam!
 
----
+## 🎉 You Did It!
 
-## ⭐ Stage 9: Build Your Own Feature!
+**Congratulations!** You've built a working recipe app with Cursor! 🎊
+
+You've learned how to:
+- ✅ Work with AI to write code
+- ✅ Turn designs into reality
+- ✅ Iterate and improve features
+- ✅ Build something real from scratch
+
+## 🎁 Bonus Challenges
+
+**Have extra time or want to keep building at home?** Try these additional features!
+
+### Bonus 1: Build Your Own Feature!
 
 **Concept**: Get creative and add something unique
 
@@ -344,51 +325,43 @@ Now it's your turn to be creative! Choose a feature and implement it yourself:
 7. **Cooking Time**: Add fields for prep time and cooking time
 8. **Ingredients List**: Add a section to list ingredients
 
-### How to Approach It
-1. Describe what you want in plain English
-2. Let the AI implement it
-3. Test it out
-4. Iterate until it works the way you want!
-
-Example prompt:
-```
-Add a "favorite" feature where users can mark recipes as favorites 
-by clicking a star icon. Favorite recipes should show a filled star, 
-and non-favorites should show an empty star outline.
-```
-
----
-
-## 🚀 Stage 10: Deploy Your App to the Web
+### Bonus 2: Deploy Your App to the Web
 
 **Concept**: Make your app accessible to anyone on the internet
 
 Your app currently only runs on your computer. Let's put it on the web!
 
-### Step 1: Ask the Agent
+#### Step 1: Ask the Agent
+Ask the AI how to deploy your app in your own words.
+
+**Example prompt:**
 ```
 How do I deploy this app to the web so anyone can access it? 
 I prefer a simple, free solution.
 ```
 
-### Step 2: Follow the Guide
+#### Step 2: Follow the Guide
 The AI will likely recommend services like:
 - **Netlify** (recommended - very beginner-friendly)
 - **Vercel**
 - **GitHub Pages**
 
-Follow the step-by-step instructions the AI provides!
+Follow the step-by-step instructions the AI provides!🎉
 
-### Step 3: Share Your Live App!
-Once deployed, you'll get a URL like `your-app.netlify.app` - share it in FigJam! 🎉
+## 🚀 What's Next?
 
----
+Ready to level up your AI coding skills? Here are some powerful features to explore:
+
+### 1. MCPs (Model Context Protocol)
+
+MCPs are special connections that let Cursor talk to external tools. Think of them as superpowers for your AI assistant!
+
+**Examples:** Figma, Gmail, Google Drive, Notion, Slack, Linear, context7.
+
+**💡 Tip**: Start with one MCP at a time to understand how they work before adding more!
+
 
 ## 📖 Afterword
-
-### 🎓 Congratulations!
-
-You've just built a full application without writing code manually! 🎉
 
 ## 💡 Principles of Successful AI Coding
 
@@ -424,8 +397,6 @@ Here's the secret: **You don't need to know how to code.** Your ability to expla
 - **Understanding the "why"** behind features makes better products
 - **Your domain knowledge** (recipes, business rules, user needs) is more valuable than knowing syntax
 
----
-
 ## 🆚 Why Choose Cursor Over Other AI Coding Tools?
 
 There are many AI coding tools out there - Loveable, v0, Bolt, Replit Agent, and more. Here's what makes Cursor special:
@@ -435,7 +406,6 @@ There are many AI coding tools out there - Loveable, v0, Bolt, Replit Agent, and
 **Your Files, Your Computer**
 Everything saves locally - you own all the code with no vendor lock-in
 
-
 **Choose Your Stack (if needed)**
 Use any technology you want (React, Vue, plain HTML, etc.)
 
@@ -443,7 +413,7 @@ Use any technology you want (React, Vue, plain HTML, etc.)
 Customize how the AI behaves (like the `.cursor/rules` you've seen)
 
 **Powerful MCPs**
-Connect to tools like Figma, Playwright, GitHub, and more
+Connect to tools like Gmail, Google Drive, Notion and more
 
 ### When to Use Alternatives
 
@@ -454,5 +424,11 @@ If Cursor feels overwhelming, tools like **Loveable**, **v0**, **Bolt**, or **Re
 - ✅ Faster time to "hello world"
 
 **Think of them as training wheels** - use them to build confidence, then graduate to Cursor when you need more control, want to integrate with other tools, or are building something long-term.
+
+## 🤝 Community
+
+Join Cursor UA Telegram channel !
+
+<img src="resources/scan_me.png" alt="Scan Me" width="300">
 
 *Made with ❤️ from Wix and Cursor UA Community*
