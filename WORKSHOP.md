@@ -45,6 +45,7 @@ Open these links - you'll need them throughout the workshop:
 4. Unzip the file to a location you can easily find
 
 ## 🚀 Stage 1: Meet Your AI Coding Partner
+⏱️ **Time: 10 minutes**
 
 **Concept**: Learn how to interact with Cursor and explore its interface
 
@@ -82,6 +83,7 @@ Let's try it out:
 3. See how the AI understands your codebase!
 
 ## 📝 Stage 2: Create and Edit Files with AI
+⏱️ **Time: 8 minutes**
 
 **Concept**: Use Agent mode to create, edit, and delete files through conversation
 
@@ -106,7 +108,26 @@ Share an emoji in the FigJam board that describes your impression so far!
 
 Suggestions: 😊 (enjoying), 😅 (overwhelmed), 🤔 (curious)
 
-## ⚙️ Stage 3: Run Your Project
+## 🪟 Stage 3: Unlock Agentic Window
+⏱️ **Time: 5 minutes**
+
+**Concept**: Switch to a simpler, more conversational interface
+
+Since we're not engineers, we don't need all the technical IDE features. Cursor has a special "Agentic Window" that gives us a cleaner, chat-focused experience.
+
+### Enable Agentic Window
+1. Open **Cursor Settings**
+2. Go to **Beta** section
+3. Enable **Agent Window**
+
+### Open Agentic Window
+- Look for the Agent Window icon in the top-right corner of the chat
+- Or press `Cmd + E` (Mac) or `Ctrl + E` (Windows)
+
+This gives you a focused view perfect for working with AI!
+
+## ⚙️ Stage 4: Run Your Project
+⏱️ **Time: 10 minutes**
 
 **Concept**: Let Cursor help you set up and run the application
 
@@ -130,24 +151,8 @@ Open your browser and go to the address shown. You should see a basic version of
 ### 🎉 Checkpoint!
 Share your result in FigJam!
 
-## 🪟 Stage 4: Unlock Agentic Window
-
-**Concept**: Switch to a simpler, more conversational interface
-
-Since we're not engineers, we don't need all the technical IDE features. Cursor has a special "Agentic Window" that gives us a cleaner, chat-focused experience.
-
-### Enable Agentic Window
-1. Open **Cursor Settings**
-2. Go to **Beta** section
-3. Enable **Agent Window**
-
-### Open Agentic Window
-- Look for the Agent Window icon in the top-right corner of the chat
-- Or press `Cmd + E` (Mac) or `Ctrl + E` (Windows)
-
-This gives you a focused view perfect for working with AI!
-
 ## 🎨 Stage 5: Build Your First Screen
+⏱️ **Time: 20 minutes**
 
 **Concept**: Turn designs into reality through "vibe coding" with AI
 
@@ -190,35 +195,8 @@ Keep refining with prompts like:
 ### 🎉 Checkpoint!
 Share your result in FigJam!
 
-## 📚 Stage 6: Build the Recipes List
-
-**Concept**: Display saved recipes in a beautiful list
-
-Now let's create a way to show recipes in a nice list!
-
-### Step 1: Get the Design
-Take a screenshot of the recipes list design from Figma
-
-### Step 2: Prompt the Agent
-Upload your screenshot and describe what you want in your own words.
-
-**Example prompt:**
-```
-Implement what's shown on the screen. Display all saved recipes in a list. 
-Note that the image and description are conditional fields - they should 
-only appear if the recipe has them.
-```
-
-### Step 3: Iterate!
-Make it perfect with example prompts like:
-- "Add more spacing between recipe cards"
-- "Make the recipe cards have a subtle shadow"
-- "Show recipes in a grid layout instead of a list"
-
-### 🎉 Checkpoint!
-Share your result in FigJam!
-
-## 🎭 Stage 7: Build the Add Recipe Modal
+## 🎭 Stage 6: Build the Add Recipe Modal
+⏱️ **Time: 25 minutes**
 
 **Concept**: Turn design into an interactive popup window
 
@@ -268,7 +246,37 @@ The AI will open a browser, test your app, find the problem, and add code to sav
 ### 🎉 Checkpoint!
 Share your working modal in FigJam!
 
+## 📚 Stage 7: Build the Recipes List
+⏱️ **Time: 20 minutes**
+
+**Concept**: Display saved recipes in a beautiful list
+
+Now that you can add recipes, let's create a way to show them in a nice list!
+
+### Step 1: Get the Design
+Take a screenshot of the recipes list design from Figma
+
+### Step 2: Prompt the Agent
+Upload your screenshot and describe what you want in your own words.
+
+**Example prompt:**
+```
+Implement what's shown on the screen. Display all saved recipes in a list. 
+Note that the image and description are conditional fields - they should 
+only appear if the recipe has them.
+```
+
+### Step 3: Iterate!
+Make it perfect with example prompts like:
+- "Add more spacing between recipe cards"
+- "Make the recipe cards have a subtle shadow"
+- "Show recipes in a grid layout instead of a list"
+
+### 🎉 Checkpoint!
+Share your result in FigJam!
+
 ## 🔍 Stage 8: Make the Search Work
+⏱️ **Time: 10 minutes**
 
 **Concept**: Add interactive functionality
 
