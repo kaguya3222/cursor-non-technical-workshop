@@ -76,7 +76,9 @@ function switchCheckpoint(number) {
 
   // Check if checkpoint directory exists
   if (!existsSync(checkpointDir)) {
-    console.error(`\n❌ Error: Checkpoint directory not found: ${checkpointDir}`);
+    console.error(
+      `\n❌ Error: Checkpoint directory not found: ${checkpointDir}`
+    );
     console.error("The checkpoint files may be missing from the repository.\n");
     process.exit(1);
   }
