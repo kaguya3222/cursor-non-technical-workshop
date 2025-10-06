@@ -196,7 +196,7 @@ Keep refining with prompts like:
 Share your result in FigJam!
 
 ## 🎭 Stage 6: Build the Add Recipe Modal
-⏱️ **Time: 25 minutes**
+⏱️ **Time: 15 minutes**
 
 **Concept**: Turn design into an interactive popup window
 
@@ -221,33 +221,11 @@ Refine the modal's appearance with example prompts like:
 - "Add more spacing between the form fields"
 - "Make the submit button more prominent"
 
-### Step 4: Save Recipes Permanently
-
-After adding recipes, you might notice they disappear when you refresh the page. Let's fix this using Cursor's browser feature!
-
-#### Enable Cursor Browser
-1. Open **Cursor Settings**
-2. Go to **Beta** section
-3. Enable **Cursor Browser**
-
-#### Use Browser to Debug
-1. Open the chat
-2. Look for the **Browser** toggle and enable it
-3. Describe the problem you're seeing in your own words
-
-**Example prompt:**
-```
-Recipes disappear when I refresh the page. Please open the browser, 
-debug it and fix it.
-```
-
-The AI will open a browser, test your app, find the problem, and add code to save your recipes locally!
-
 ### 🎉 Checkpoint!
 Share your working modal in FigJam!
 
 ## 📚 Stage 7: Build the Recipes List
-⏱️ **Time: 20 minutes**
+⏱️ **Time: 15 minutes**
 
 **Concept**: Display saved recipes in a beautiful list
 
@@ -275,7 +253,40 @@ Make it perfect with example prompts like:
 ### 🎉 Checkpoint!
 Share your result in FigJam!
 
-## 🔍 Stage 8: Make the Search Work
+## 💾 Stage 8: Make Recipes Permanent
+⏱️ **Time: 15 minutes**
+
+**Concept**: Save recipes so they don't disappear when you refresh
+
+You might notice that after adding recipes, they probably disappear when you refresh the page. Let's fix this using Cursor's browser feature!
+
+### Enable Cursor Browser
+1. Open **Cursor Settings**
+2. Go to **Beta** section
+3. Enable **Cursor Browser**
+
+### Use Browser to Debug and Fix
+1. Open the chat
+2. Look for the **Browser** toggle and enable it
+3. Describe the problem you're seeing in your own words
+
+**Example prompt:**
+```
+Recipes disappear when I refresh the page. Please open the browser, 
+debug it and fix it so recipes are saved permanently.
+```
+
+The AI will open a browser, test your app, find the problem, and add code to save your recipes locally so they persist even after refreshing!
+
+### Test It!
+1. Add a few recipes
+2. Refresh the page
+3. Your recipes should still be there!
+
+### 🎉 Checkpoint!
+Share your results in FigJam!
+
+## 🔍 Stage 9: Make the Search Work
 ⏱️ **Time: 10 minutes**
 
 **Concept**: Add interactive functionality
@@ -332,6 +343,7 @@ Now it's your turn to be creative! Choose a feature and implement it yourself:
 6. **Favorites**: Let users mark favorite recipes with a star
 7. **Cooking Time**: Add fields for prep time and cooking time
 8. **Ingredients List**: Add a section to list ingredients
+9. **Recipe Modal View**: Recipe probably will have long description, so we can add a modal view to see the full description
 
 ### Bonus 2: Deploy Your App to the Web
 
