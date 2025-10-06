@@ -26,4 +26,4 @@ Available checkpoints:
 
 See [CHECKPOINTS.md](mdc:CHECKPOINTS.md) for full documentation.
 
-**Important:** Switching checkpoints discards all local changes (this is expected behavior).
+**Important:** Switching checkpoints will overwrite `src/App.tsx` and `src/App.module.css` (this is expected behavior).
