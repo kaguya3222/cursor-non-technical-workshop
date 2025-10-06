@@ -1,0 +1,29 @@
+---
+alwaysApply: true
+---
+
+# Checkpoint System
+
+This workshop repo supports checkpoints (0-5) for jumping between implementation stages.
+
+When user asks to move to a checkpoint, use:
+```bash
+pnpm checkpoint <number>
+```
+
+To see all available checkpoints with descriptions, use:
+```bash
+pnpm checkpoint list
+```
+
+Available checkpoints:
+- 0: Starting point
+- 1: Empty screen
+- 2: Add recipe modal
+- 3: Recipes list
+- 4: Permanent storage
+- 5: Search feature
+
+See [CHECKPOINTS.md](mdc:CHECKPOINTS.md) for full documentation.
+
+**Important:** Switching checkpoints discards all local changes (this is expected behavior).
