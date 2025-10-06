@@ -417,6 +417,20 @@ Here's the secret: **You don't need to know how to code.** Your ability to expla
 - **Understanding the "why"** behind features makes better products
 - **Your domain knowledge** (recipes, business rules, user needs) is more valuable than knowing syntax
 
+### 4. Starting from Scratch
+
+**You may ask:** "We started this project when initial structure was ready, how do I prototype something from scratch?"
+
+**The answer:** This workshop was structured this way so we don't spend a lot of time on project setup and avoid inconsistency between students. Instead, we focused on Cursor tooling to help you understand how to use it effectively.
+
+**But here's the good news:** Cursor can absolutely help you build from total zero! The key is to use Cursor Rules (like the `@non-tech.mdc` rule you've seen in this project) that explain to the AI that you're a non-technical person. This tells the AI to:
+- Use the easiest, most beginner-friendly technologies
+- Set up projects with simple structures
+- Choose straightforward solutions to test your ideas quickly
+- Avoid complex technical concepts
+
+When starting from scratch, simply tell the AI: "I want to build [your idea]. I'm not technical, so please use simple, beginner-friendly technologies and explain your choices." The AI will guide you through the entire setup! or use `@non-tech.mdc` rule.
+
 ## 🆚 Why Choose Cursor Over Other AI Coding Tools?
 
 There are many AI coding tools out there - Loveable, v0, Bolt, Replit Agent, and more. Here's what makes Cursor special:
