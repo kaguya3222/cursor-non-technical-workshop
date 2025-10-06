@@ -1,48 +1,40 @@
 #!/usr/bin/env node
 
-import { execSync } from "child_process";
+import { copyFileSync, existsSync } from "fs";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
 
-// Define all checkpoints with their actual commit SHAs
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const projectRoot = join(__dirname, "..");
+
+// Define all checkpoints
 const CHECKPOINTS = {
   0: {
-    sha: "main",
     name: "Starting Point",
     description: "Current state of main branch - where you begin",
   },
   1: {
-    sha: "eabd43b08ff97241b75f7f6c96e681148349517",
     name: "Empty Screen",
     description: "Empty state when no recipes exist yet",
   },
   2: {
-    sha: "103aa9759b9f73451fbd7c942691d843770c4d16",
     name: "Add Recipe Modal",
     description: "Modal for creating new recipes",
   },
   3: {
-    sha: "38d7bbb9b8ca147cf1b3f11aa3ac761824ea7cca",
     name: "Recipes List",
     description: "Display saved recipes in a list",
   },
   4: {
-    sha: "e700c75911d3110b2b9bea93865d54b173109f60",
     name: "Permanent Storage",
     description: "Recipes saved permanently using localStorage",
   },
   5: {
-    sha: "80232c6fb5cb490e51074c474473a8a28dfeafc0",
     name: "Search Feature",
     description: "Working search functionality",
   },
 };
-
-function execute(command) {
-  try {
-    return execSync(command, { encoding: "utf8", stdio: "pipe" });
-  } catch (error) {
-    return null;
-  }
-}
 
 function listCheckpoints() {
   console.log("\n📍 Available Checkpoints:\n");
@@ -60,11 +52,11 @@ function listCheckpoints() {
   console.log("  pnpm checkpoint 5    - Jump to search feature");
   console.log("  pnpm checkpoint list - Show all checkpoints\n");
   console.log(
-    "⚠️  Note: Switching checkpoints will discard any unsaved changes!\n"
+    "⚠️  Note: Switching checkpoints will overwrite your current code!\n"
   );
 }
 
-function checkoutCheckpoint(number) {
+function switchCheckpoint(number) {
   const checkpoint = CHECKPOINTS[number];
 
   if (!checkpoint) {
@@ -77,31 +69,40 @@ function checkoutCheckpoint(number) {
   console.log(`\n🚀 Switching to Checkpoint ${number}: ${checkpoint.name}`);
   console.log(`   ${checkpoint.description}\n`);
 
-  try {
-    // Force checkout to discard any local changes
-    if (checkpoint.sha === "main") {
-      execSync("git checkout -f main", { stdio: "inherit" });
-    } else {
-      execSync(`git checkout -f ${checkpoint.sha}`, { stdio: "inherit" });
-    }
+  // Define the files to copy
+  const files = ["App.tsx", "App.module.css"];
+  const checkpointDir = join(projectRoot, "checkpoints", number);
+  const targetDir = join(projectRoot, "src");
 
-    // Reinstall dependencies in case they changed
-    console.log("\n📦 Reinstalling dependencies...\n");
-    execSync("pnpm install", { stdio: "inherit" });
+  // Check if checkpoint directory exists
+  if (!existsSync(checkpointDir)) {
+    console.error(`\n❌ Error: Checkpoint directory not found: ${checkpointDir}`);
+    console.error("The checkpoint files may be missing from the repository.\n");
+    process.exit(1);
+  }
+
+  try {
+    // Copy each file
+    for (const file of files) {
+      const sourcePath = join(checkpointDir, file);
+      const targetPath = join(targetDir, file);
+
+      if (!existsSync(sourcePath)) {
+        console.warn(`⚠️  Warning: File not found: ${sourcePath}, skipping...`);
+        continue;
+      }
+
+      copyFileSync(sourcePath, targetPath);
+      console.log(`  ✓ Copied ${file}`);
+    }
 
     console.log(`\n✅ Successfully switched to checkpoint ${number}!`);
     console.log(
       `\n💡 Next step: Run "pnpm dev" to see the app at this stage.\n`
     );
-
-    if (number !== "0") {
-      console.log('ℹ️  You are now in "detached HEAD" state - this is normal!');
-      console.log("   Feel free to experiment. Your changes will be discarded");
-      console.log("   when you switch to another checkpoint.\n");
-    }
   } catch (error) {
-    console.error("\n❌ Error switching checkpoints.");
-    console.error('Make sure you have run "git fetch" to get all commits.\n');
+    console.error("\n❌ Error switching checkpoints:");
+    console.error(error.message);
     process.exit(1);
   }
 }
@@ -112,7 +113,7 @@ const command = process.argv[2];
 if (!command || command === "list") {
   listCheckpoints();
 } else if (command.match(/^[0-5]$/)) {
-  checkoutCheckpoint(command);
+  switchCheckpoint(command);
 } else {
   console.error(`\n❌ Invalid checkpoint: ${command}`);
   console.error('Run "pnpm checkpoint list" to see available checkpoints.\n');

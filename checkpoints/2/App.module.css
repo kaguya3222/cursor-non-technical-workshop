@@ -1,0 +1,315 @@
+/* Main App Container */
+.app {
+  min-height: 100vh;
+  background-color: #f9fafb;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styles */
+.header {
+  background-color: white;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoIcon {
+  width: 2rem;
+  height: 2rem;
+  background-color: #ff6b35;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoText {
+  font-family: "Roboto Serif", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Toolbar (Search + New Button) */
+.toolbar {
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.searchBar {
+  flex: 1;
+  max-width: 28rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  color: #111827;
+  background-color: white;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.searchInput::placeholder {
+  color: #9ca3af;
+}
+
+.searchInput:focus {
+  border-color: #ff6b35;
+}
+
+.newButton {
+  background-color: #ff6b35;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.newButton:hover {
+  background-color: #e55a28;
+}
+
+.plusIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.newText {
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* Main Content Area */
+.main {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+/* Empty State */
+.emptyState {
+  background-color: white;
+  border-radius: 0.75rem;
+  padding: 4rem 2rem;
+  text-align: center;
+  width: 100%;
+  min-height: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e5e7eb;
+}
+
+.emptyTitle {
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #111827;
+  margin-bottom: 0.75rem;
+}
+
+.emptyText {
+  font-size: 1rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 28rem;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modalHeader {
+  padding: 1.5rem 1.5rem 0 1.5rem;
+  position: relative;
+}
+
+.modalTitle {
+  font-family: "Inter", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.modalDescription {
+  font-size: 0.875rem;
+  color: #6b7280;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  transition: color 0.2s;
+}
+
+.closeButton:hover {
+  color: #111827;
+}
+
+.modalForm {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.formField {
+  margin-bottom: 1.5rem;
+}
+
+.fieldLabel {
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.fieldInput,
+.fieldTextarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: #111827;
+  background-color: white;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+
+.fieldInput::placeholder,
+.fieldTextarea::placeholder {
+  color: #9ca3af;
+}
+
+.fieldInput:focus,
+.fieldTextarea:focus {
+  border-color: #ff6b35;
+}
+
+.fieldTextarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.modalActions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.cancelButton {
+  background-color: #f8efeb;
+  color: #111827;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancelButton:hover {
+  background-color: #f0e6e0;
+}
+
+.createButton {
+  background-color: #ff6b35;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.createButton:hover {
+  background-color: #e55a28;
+}
+
+.createButton:active {
+  background-color: #d14a1a;
+  transform: translateY(1px);
+}
+
+.createButton:disabled {
+  background-color: #f3f4f6;
+  color: #6b7280;
+  cursor: not-allowed;
+  transform: none;
+  border: 1px solid #e5e7eb;
+}
+
+.createButton:disabled:hover {
+  background-color: #f3f4f6;
+}

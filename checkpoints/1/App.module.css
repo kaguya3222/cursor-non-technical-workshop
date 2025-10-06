@@ -1,0 +1,151 @@
+/* Main App Container */
+.app {
+  min-height: 100vh;
+  background-color: #f9fafb;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styles */
+.header {
+  background-color: white;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoIcon {
+  width: 2rem;
+  height: 2rem;
+  background-color: #ff6b35;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoText {
+  font-family: "Roboto Serif", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Toolbar (Search + New Button) */
+.toolbar {
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.searchBar {
+  flex: 1;
+  max-width: 28rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  color: #111827;
+  background-color: white;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.searchInput::placeholder {
+  color: #9ca3af;
+}
+
+.searchInput:focus {
+  border-color: #ff6b35;
+}
+
+.newButton {
+  background-color: #ff6b35;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.newButton:hover {
+  background-color: #e55a28;
+}
+
+.plusIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.newText {
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* Main Content Area */
+.main {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+/* Empty State */
+.emptyState {
+  background-color: white;
+  border-radius: 0.75rem;
+  padding: 4rem 2rem;
+  text-align: center;
+  width: 100%;
+  min-height: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e5e7eb;
+}
+
+.emptyTitle {
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #111827;
+  margin-bottom: 0.75rem;
+}
+
+.emptyText {
+  font-size: 1rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
