@@ -59,6 +59,11 @@ You'll see a file view on the left - this is the standard IDE layout engineers u
 
 **💡 Tip**: Press `Cmd + B` (Mac) or `Ctrl + B` (Windows) to hide/show the file sidebar
 
+**💡 Tip**: You can zoom in/out to make text larger or smaller:
+- **Zoom In**: `Cmd + =` (Mac) or `Ctrl + =` (Windows)
+- **Zoom Out**: `Cmd + -` (Mac) or `Ctrl + -` (Windows)
+- **Reset Zoom**: `Cmd + 0` (Mac) or `Ctrl + 0` (Windows)
+
 ### Step 3: Open the Chat
 1. Look for the chat panel on the right side
 2. If you don't see it, press `Cmd + L` (Mac) or `Ctrl + L` (Windows)
@@ -73,7 +78,7 @@ In the chat, you'll see:
 
 Let's try it out:
 1. Select **Agent** mode
-2. Choose the **Claude Sonnet** model
+2. Choose the **Claude Sonnet 4.5** model
 3. Type: "What is this project about?"
 4. Press Enter and watch the AI explore your project!
 
@@ -168,7 +173,7 @@ Take a screenshot of the empty state screen from Figma
 
 ### Step 3: Generate the Code
 1. Make sure you're in **Agent** mode
-2. Select **Claude Sonnet** model
+2. Select **Claude Sonnet 4.5** model
 3. Upload your screenshot to the chat
 4. Write your own prompt describing what you want
 
