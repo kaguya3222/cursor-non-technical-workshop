@@ -41,49 +41,44 @@ A modern recipe management application built with React, TypeScript, and Tailwin
    ```
    This shows you which version of Git is installed.
 
-2. **nvm (Node Version Manager)**
-   
-   **MacOS/Linux:**
-   ```bash
-   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
-   ```
-   This downloads and installs nvm, which helps you manage different Node.js versions.
-   
-   **Windows:**
-   ```bash
-   winget install CoreyButler.NVMforWindows
-   ```
-   This uses winget to install nvm-windows automatically. After installation, close and reopen your terminal for nvm to work.
-   
-   **Verify installation (both MacOS and Windows):**
-   ```bash
-   nvm --version
-   ```
-   This confirms nvm is installed correctly.
-
-3. **Node.js 22.17.0**
+2. **Node.js 22.17.0**
    
    **MacOS:**
    ```bash
-   nvm install 22.17.0
-   nvm use 22.17.0
+   # Download and install nvm:
+   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+   
+   # In lieu of restarting the shell:
+   \. "$HOME/.nvm/nvm.sh"
+   
+   # Download and install Node.js:
+   nvm install 22
+   
+   # Verify the Node.js version:
+   node -v # Should print "v22.17.0".
+   
+   # Verify npm version:
+   npm -v # Should print "10.9.3".
    ```
-   This installs Node.js version 22.17.0 and sets it as the active version.
+   This downloads and installs nvm (Node Version Manager), then uses it to install Node.js version 22 (which will get the latest 22.x version, currently 22.17.0). The verification commands confirm everything is working correctly.
    
    **Windows:**
    ```bash
-   nvm install 22.17.0
-   nvm use 22.17.0
-   ```
-   This installs Node.js version 22.17.0 and sets it as the active version.
+   # Download and install Chocolatey:
+   powershell -c "irm https://community.chocolatey.org/install.ps1|iex"
    
-   **Verify installation (both MacOS and Windows):**
-   ```bash
-   node --version
+   # Download and install Node.js:
+   choco install nodejs --version="22.17.0"
+   
+   # Verify the Node.js version:
+   node -v # Should print "v22.17.0".
+   
+   # Verify npm version:
+   npm -v # Should print "10.9.3".
    ```
-   This confirms Node.js is installed and shows the version number.
+   This installs Chocolatey (a package manager for Windows), then uses it to install Node.js version 22.17.0. The verification commands confirm everything is working correctly.
 
-4. **pnpm (Package Manager)**
+3. **pnpm (Package Manager)**
    
    **MacOS:**
    ```bash
