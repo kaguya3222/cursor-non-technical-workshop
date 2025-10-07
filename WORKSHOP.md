@@ -78,7 +78,7 @@ In the chat, you'll see:
 
 Let's try it out:
 1. Select **Agent** mode
-2. Choose the **Claude Sonnet 4.5** model
+2. Keep the model on **Auto** (default)
 3. Type: "What is this project about?"
 4. Press Enter and watch the AI explore your project!
 
@@ -136,7 +136,17 @@ This gives you a focused view perfect for working with AI!
 
 **Concept**: Let Cursor help you set up and run the application
 
-### Step 1: Install Dependencies
+### Step 1: Enable Claude Sonnet 4.5
+Now we'll switch to a more powerful AI model for better results:
+
+1. Open **Cursor Settings**
+2. Go to **Models** section
+3. Enable **Claude Sonnet 4.5**
+4. In the chat, switch from **Auto** to **Claude Sonnet 4.5** in the model selector
+
+**Why this matters**: Sonnet 4.5 is better at understanding complex tasks and writing code. We start with Auto to keep things simple, but now we want more power!
+
+### Step 2: Install Dependencies
 The project needs some software packages installed to run. Instead of figuring this out yourself, let the AI help!
 
 Type in chat: "Install everything needed to run this project and run it @README.md"
@@ -145,12 +155,12 @@ The AI will run terminal commands for you. Don't worry - this is expected and no
 
 **What's happening**: The AI is installing "dependencies" - think of them as building blocks your app needs to work.
 
-### Step 2: Start the Application
+### Step 3: Start the Application
 Type: "Run the project"
 
 The AI will start a development server, and you should see a message about opening your browser to a local address (usually `http://localhost:5173`)
 
-### Step 3: View Your App
+### Step 4: View Your App
 Open your browser and go to the address shown. You should see a basic version of FlavorFlow!
 
 ### 🎉 Checkpoint!
@@ -173,7 +183,7 @@ Take a screenshot of the empty state screen from Figma
 
 ### Step 3: Generate the Code
 1. Make sure you're in **Agent** mode
-2. Select **Claude Sonnet 4.5** model
+2. Make sure **Claude Sonnet 4.5** model is selected (you enabled this in Stage 4)
 3. Upload your screenshot to the chat
 4. Write your own prompt describing what you want
 
