@@ -9,7 +9,7 @@ A modern recipe management application built with React, TypeScript, and Tailwin
 - Build Tool: Vite
 - Code Quality: Biome.js for linting and formatting
 - Package Manager: pnpm
-- Node Version: 22.17.0
+- Node Version: 22.20.0
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ A modern recipe management application built with React, TypeScript, and Tailwin
    ```
    This shows you which version of Git is installed.
 
-2. Node.js 22.17.0
+2. Node.js 22.20.0
    
    MacOS:
    ```bash
@@ -45,7 +45,7 @@ A modern recipe management application built with React, TypeScript, and Tailwin
    brew install node@22
    
    # Verify the Node.js version:
-   node -v # Should print "v22.17.0".
+   node -v # Should print "v22.20.0".
    
    # Verify npm version:
    npm -v # Should print "10.9.3".
@@ -58,15 +58,15 @@ A modern recipe management application built with React, TypeScript, and Tailwin
    powershell -c "irm https://community.chocolatey.org/install.ps1|iex"
    
    # Download and install Node.js:
-   choco install nodejs --version="22.17.0"
+   choco install nodejs --version="22.20.0"
    
    # Verify the Node.js version:
-   node -v # Should print "v22.17.0".
+   node -v # Should print "v22.20.0".
    
    # Verify npm version:
    npm -v # Should print "10.9.3".
    ```
-   This installs Chocolatey (a package manager for Windows), then uses it to install Node.js version 22.17.0. The verification commands confirm everything is working correctly.
+   This installs Chocolatey (a package manager for Windows), then uses it to install Node.js version 22.20.0. The verification commands confirm everything is working correctly.
 
 3. pnpm (Package Manager)
    
@@ -84,13 +84,31 @@ A modern recipe management application built with React, TypeScript, and Tailwin
 
 ## Troubleshooting
 
-Windows PowerShell Error: "File cannot be loaded because running scripts is disabled on this system"
+### Windows PowerShell Error
+
+"File cannot be loaded because running scripts is disabled on this system"
 
 If you encounter this error when running any commands, open PowerShell as Administrator and run:
 ```powershell
 Set-ExecutionPolicy RemoteSigned -Force
 ```
 This enables script execution while maintaining security for downloaded files.
+
+### Manual Installation
+
+If the automated installation commands above don't work for you, you can download and install the software manually:
+
+1. **Git**: Visit [https://git-scm.com/downloads](https://git-scm.com/downloads) and download the installer for your operating system. Run the installer and follow the on-screen instructions.
+
+2. **Node.js**: Visit [https://nodejs.org/en/download](https://nodejs.org/en/download) and download Node.js version 22.20.0 for your operating system. Run the installer and follow the on-screen instructions. This will also install npm automatically.
+
+3. **pnpm**: After Node.js is installed, open your terminal (Terminal on Mac, PowerShell on Windows) and run:
+   ```bash
+   corepack enable pnpm
+   ```
+   This enables pnpm using Node.js's built-in package manager.
+
+After manual installation, verify everything is working by running the verification commands listed in the Prerequisites section above.
 
 ## Installation
 
