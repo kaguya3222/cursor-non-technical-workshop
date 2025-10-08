@@ -59,14 +59,36 @@ A modern recipe management application built with React, TypeScript, and Tailwin
    
    # Download and install Node.js:
    choco install nodejs --version="22.20.0"
+   ```
+   This installs Chocolatey (a package manager for Windows), then uses it to install Node.js version 22.20.0.
    
+   **Important: Add Node.js to your PATH**
+   
+   After installation, you need to tell PowerShell where to find Node.js. First, find where it was installed:
+   ```powershell
+   Get-ChildItem -Path C:\, D:\, E:\ -Filter "node.exe" -Recurse -ErrorAction SilentlyContinue | Select-Object -First 1 Directory
+   ```
+   This searches your computer for Node.js and shows you its location (usually `C:\Program Files\nodejs`).
+   
+   Then add it to your PATH (replace `<path-to-nodejs>` with the actual path from above):
+   ```powershell
+   $env:PATH += ";<path-to-nodejs>"
+   ```
+   For example, if it's in `C:\Program Files\nodejs`:
+   ```powershell
+   $env:PATH += ";C:\Program Files\nodejs"
+   ```
+   This tells PowerShell where to find Node.js so you can use it.
+   
+   Now verify everything is working:
+   ```bash
    # Verify the Node.js version:
    node -v # Should print "v22.20.0".
    
    # Verify npm version:
    npm -v # Should print "10.9.3".
    ```
-   This installs Chocolatey (a package manager for Windows), then uses it to install Node.js version 22.20.0. The verification commands confirm everything is working correctly.
+   These commands confirm Node.js is installed and accessible.
 
 3. pnpm (Package Manager)
    

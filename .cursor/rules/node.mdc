@@ -1,0 +1,12 @@
+---
+alwaysApply: true
+---
+If you are on Windows, before running Node.js/pnpm commands, ALWAYS make sure to run $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
+
+Concat them with commands you planned to run.
+
+<example>
+If you wanted to run "node -v" make it as "$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine"); node -v"
+</example>
+
+MAKE SURE YOU APPLY IT ONLY FOR NODE.js/PNPM commands
