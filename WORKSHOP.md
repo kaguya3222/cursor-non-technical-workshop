@@ -51,6 +51,7 @@ Open these links - you'll need them throughout the workshop:
 
 ### Step 1: Open Your Project
 1. Open Cursor IDE
+   - **Windows users**: Right-click on Cursor and select "Run as Administrator" to ensure all features work properly
 2. Click **File** → **Open Folder**
 3. Select the unzipped workshop project folder
 
