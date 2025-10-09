@@ -2,6 +2,12 @@
 
 Welcome! This workshop will teach you how to use Cursor to build a beautiful recipe management app called **FlavorFlow** - no coding experience required!
 
+## 💬 Workshop Chat
+
+Join our dedicated workshop chat to check any relevant links or ask questions after the workshop:
+
+<img src="resources/tg-channel.png" alt="Join Workshop Chat" width="300">
+
 ## 👥 Who This Workshop Is For
 
 - Product & Project Managers
